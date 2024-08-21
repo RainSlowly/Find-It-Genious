@@ -1,0 +1,36 @@
+<img class="bg" src="http://localhost:3000/public/images/lab1.png">
+<img class="marsh"  src="http://localhost:3000/public/images/marsh.png">
+<img class ="ezio"  src="http://localhost:3000/public/images/ezio.png">
+<img class="logo" src="http://localhost:3000/public/images/logo.png">
+
+<div class="buttonContainer" *ngIf="audioOpen===false"[ngClass]="{'visible':buttonVisible}">
+<button *ngIf="maxLevel===0" (mouseenter)="playSound()" (click)="start()">Avvia</button>
+<button *ngIf="maxLevel>0" (mouseenter)="playSound()" (click)="start()">Riprendi</button>
+<button (mouseenter)="playSound()"(click)="openAudioSettings()">Audio</button>
+<button *ngIf="maxLevel>0" (mouseenter)="playSound()"(click)="levels()">Livelli</button>
+<button (mouseenter)="playSound()"(click)="logOut()">Logout</button>
+</div>
+<div class="audioSettings" *ngIf="audioOpen">
+    <div>
+      <label for="bgmusic-volume">BG Music Volume</label>
+      <input id="bgmusic-volume" type="range" min="0" max="100" [value]="bgMusicVolume" (input)="onVolumeChange('BGMusic', $event)" />
+      <span>{{ bgMusicVolume }}</span>
+    </div>
+  
+    <div>
+      <label for="bgAudio-volume">BG Audio Volume</label>
+      <input id="bgAudio-volume" type="range" min="0" max="100" [value]="bgAudioVolume" (input)="onVolumeChange('BGAudio', $event)" />
+      <span>{{ bgAudioVolume }}</span>
+    </div>
+  
+    <div>
+      <label for="sfx-volume">SFX Volume</label>
+      <input id="sfx-volume" type="range" min="0" max="100" [value]="sfxVolume" (input)="onVolumeChange('SFX', $event)" />
+      <span>{{ sfxVolume }}</span>
+    </div>
+  
+    <button (mouseenter)="playSound()" (click)="closeAudioSettings()">X</button>
+  </div>
+
+<div class="fade" *ngIf="fadeOut" [ngClass]="{'fading': fadeOut===true}"></div>
+<a href="">made by Simone Zavaglia</a>

@@ -1,0 +1,85 @@
+
+    <div class="card">
+        <section class="card-info card-section">
+
+          <section class="user row">
+            <h1 class="user-header">{{userName}}</h1>
+            <h2 class="sub header">{{currentLevel}}</h2>
+          </section>
+          
+          <section class="statistics">
+            <article class="statistic">
+              <h4 class="statistic-title">Tag</h4>
+              <h3 class="statistic-value">{{tag}}</h3>
+            </article>
+            
+            <article class="statistic">
+              <h4 class="statistic-title">Score</h4>
+              <h3 class="statistic-value">{{totalScore|number: '1.0-0'}}</h3>
+            </article>
+          </section>
+          
+          <div class="dial">
+            <h2 class="dial-title">{{currentLevel}}</h2>
+            <h3 class="dial-value">Level</h3>
+          </div>
+          <div class="imgContainer">
+            <img class="lvImg" [src]="image">
+            <div *ngIf="stars >= 0"  class="rating">
+              <ng-container *ngFor="let star of [1, 2, 3]">
+                <input *ngIf="showStars" type="checkbox" 
+                [id]="'star-' + star" 
+                [name]="'star-radio'" 
+                [value]="star" 
+                [checked]="star <= stars" 
+                (change)="stars = star" 
+                [disabled]="true">
+                <label [for]="'star-'+ star"[ngClass]="{'animated-star': star <= stars}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path>
+                  </svg>
+                </label>
+              </ng-container>
+            </div>
+          </div>
+          <div class="levelBonus">
+            <p class="zoom" *ngIf="usedZoom">Zoom: <span class="minus">- 500p</span></p>
+            <p class="hint" *ngIf="usedHint>0">Hint: <span class="minus">- 200p x {{usedHint}}</span></p>
+            <p class="hintless" *ngIf="usedHint===0">No Hint: <span class="plus">500p</span></p>
+            <p class="timeLeft" *ngIf="timeLeft>0">Time Left: <span class="plus"> 50p x {{timeLeft}}</span></p>
+          </div>
+        </section>
+        
+        <section class="card-details card-section">
+                 
+          <dl class="leaderboard">
+            <div *ngFor="let score of leaderBoard, let i=index" >
+              <dt> 
+              <article class="progress">
+                <section class="progress-bar" style="width: 100%;"></section>
+              </article>
+            </dt>
+            <dd>
+              <div class="leaderboard-name" [ngClass]="{'highlight': score.userName==userName,'gold': i === 0,
+              'silver': i === 1,
+              'bronze': i === 2}">{{score.userName}}</div>
+              <div class="leaderboard-value"[ngClass]="{
+                'gold': i === 0,
+                'silver': i === 1,
+                'bronze': i === 2
+              }">{{score.points | number: '1.0-0'}}</div>
+            </dd>
+          </div>
+          </dl>
+        </section>
+      </div>
+<div class= "npcContainer"*ngIf="npc!=undefined && phrase!=undefined">
+  <div class="speech-bubble"> 
+    <p class="line">{{phrase}}</p>
+  </div>
+    <img [src]="npcImg" class="npc">
+</div>
+
+<button class="nextBtn" (mouseenter)="playSound()" (click)="nextPage()">Next</button>
+<button class="retryBtn" (mouseenter)="playSound()" (click)="retry()">Retry</button>
+<app-side-menu></app-side-menu>

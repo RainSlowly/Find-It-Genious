@@ -1,0 +1,24 @@
+<div class="totalBG"></div>
+<div *ngIf="characters!==undefined" class="sidebar">
+    <header>Character Profiles</header>
+    <a *ngFor="let character of characters, let i=index" (mouseenter)="playSound()" (click)="showChara(i)">
+      <i class="fas fa-user"></i>
+      <span *ngIf="character.lv<=maxLevel">{{character.name}}</span>
+      <span *ngIf="character.lv>maxLevel">???????</span>
+    </a>
+</div>
+<div *ngIf="characters!==undefined && activeChara!==undefined" class="characterContainer">
+  <div class="characterDataCont">
+    <div class="characterData" (click)="changeImg()"> 
+      <h1>Analisi del soggetto</h1>
+      <p><b>Nome: </b>{{activeChara.name}}</p>
+      <p><b>Età: </b>{{activeChara.age}}</p>
+      <p><b>Ruolo: </b>{{activeChara.role}}</p>
+      <p><b>Ama: </b>{{activeChara.loves}}</p>
+      <p><b>Odia: </b>{{activeChara.hates}}</p>
+      <p><b>Cosa Sappiamo: </b><br>{{activeChara.knowing[phase]}}</p>
+      <img class="characterImg" [src]="activeCharaImg">
+    </div>
+  </div>
+</div>
+<app-side-menu></app-side-menu>

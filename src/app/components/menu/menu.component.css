@@ -1,0 +1,231 @@
+.buttonContainer{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 38%;
+  z-index: 2;
+  position: absolute;
+  top:57%;
+  left: 40%;
+  background-color: #489ff723;
+  opacity: 0;
+  animation: fadeInS 2.0s ease forwards;
+  animation-delay: 5s ;
+}
+
+.visible{
+  opacity: 1;
+  animation: fadeInS 1.0s ease forwards;;
+  animation-delay: 0s;
+}
+
+button{
+    cursor: url("http://localhost:3000/public/customCursor_1.cur") ,auto;
+     font-weight: 600;
+     display: inline-block;
+     position: relative;
+     border: 3px solid #ffffff2d;
+     padding: 1% 3%;
+     font-size: 1.2rem;
+     margin: 1%;
+     height: 23%;
+   }
+   
+   button::after, button::before {
+     position: absolute;
+     content: "";
+     width: 0;
+     height: 0;
+     transition: .5s;
+   }
+   
+   button::after {
+     top: -3px;
+     left: -3px;
+     border-top: 3px solid transparent;
+     border-left: 3px solid transparent;
+   }
+   
+   button::before {
+     bottom: -3px;
+     right: -3px;
+     border-bottom: 3px solid transparent;
+     border-right: 3px solid transparent;
+   }
+   
+   button:hover {
+     color: #0668C9;
+   }
+   
+   button:hover::after,
+   button:hover::before {
+     width: calc(50% + 3px);
+     height: calc(50% + 3px);
+     border-color: #0668C9;
+   }
+
+   .bg {
+    position:fixed ;
+    top:-1%;
+    left: -66%;
+    animation: slideInFromRight 4s ease forwards;
+    animation-delay: 0.1s ;
+    opacity: 0;
+    z-index: 0;
+   }
+
+   .logo {
+    position:fixed ;
+    width: 28%;
+    height: auto;
+    top: 1%;
+    left: 36%;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 4.5s ;
+    opacity: 0;
+    filter: drop-shadow(2px 10px 10px rgba(102, 176, 241, 0.822));
+    z-index: 1;
+   }
+
+   .marsh{
+    position: fixed;
+    height: 100%;
+    width: auto;
+    right: 3%;
+    animation: slideInFromRightM 1.5s ease forwards;
+    animation-delay: 1.5s ;
+    opacity: 0;
+    z-index: 2;
+   }
+  .ezio{
+    animation: slideInFromRightM 1.8s ease forwards;
+    animation-delay: 1.5s;
+    position: fixed;
+    height: 100%;
+    width: auto;
+    right: 10%;
+    opacity: 0;
+    z-index: 1;
+    
+  }
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRightM {
+  0% {
+    transform: translateX(200%)  scaleX(-1);
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%)  scaleX(-1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% { 
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  60%,80%{
+    transform: scale(1);
+  }
+  50%,70%,90%{
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeInS {
+  0% { 
+    transform: scale(0.2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+a{
+  z-index: 2;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+}
+
+
+.audioSettings{
+  font-weight: 600;
+     display: inline-block;
+     position: relative;
+     border: 3px solid #ffffff2d;
+     background-color: #e1e6eb;
+     padding: 1%;
+     font-size: 1.2rem;
+     margin: 1%;
+     width: 17.5%;
+     height: 23%;
+     position: absolute;
+     top:60%;
+    left: 39%;
+    align-items: center;
+}
+.audioSettings div{
+  margin-top: 3%;
+}
+.audioSettings button{
+  position: relative;
+  top: 20%;
+  left: 35.5%;
+  width: 26%;
+
+}
+
+
+.fade{
+  position: absolute;
+  top:-0.1%;
+  left:-0.1%;
+  width: 100%;
+  height: 150%;
+  z-index: 5;
+}
+
+.fading{
+  position: absolute;
+  top:-0.1%;
+  left:-0.1%;
+  width: 100%;
+  height: 150%;
+  z-index: 5;
+  animation: fading 2.3s ease-in forwards;
+  transition: ease;
+  animation-delay: 0.2s;
+  background-color: aliceblue;
+  opacity: 0;
+}
+
+@keyframes fading {
+0%{
+  opacity: 0;
+} 100% {
+  opacity: 1;
+} 
+}

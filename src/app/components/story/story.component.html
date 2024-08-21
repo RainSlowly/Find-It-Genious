@@ -1,0 +1,34 @@
+<div class="storyContainer" [ngStyle]="{'background-image': 'url(' + currentBackground + ')'}">
+    <div *ngIf="npcSlots.left"class="npcLeft">
+        <img  [src]="npcSlots.left.img"[ngClass]="{'active': lastActiveSlot === 'left', 'inactive': lastActiveSlot !== 'left'}">
+    </div>
+    <div *ngIf="npcSlots.right"class="npcRight mirrored ">
+        <img  [src]="npcSlots.right.img"[ngClass]="{'activeRight': lastActiveSlot === 'right', 'inactive': lastActiveSlot !== 'right'}">
+    </div>
+    <div class="chatLog" *ngIf="logOpen">
+        <ng-container *ngFor="let dialogue of logs; let i = index">
+            <div *ngIf="i <=currentLine && dialogue!==null">
+              <p>{{dialogue.npc | uppercase}}<span [innerHTML]="dialogue.line"></span></p>
+            </div>
+        </ng-container>
+        <button (click)="closeLog()">X</button>
+    </div>
+    <div class="summaryContainer" *ngIf="skipOpen">
+        <p class="summary">{{story.summary}}</p>
+        <div class="buttonContainerSkip">
+        <button (mouseenter)="playSound()" (click)="closeSkip()">Return</button>
+        <button (mouseenter)="playSound()" (click)="nextPage()">Confirm</button>
+    </div>
+    </div>
+    <div class="dialogueContainer">
+        <div class="buttonContainer">
+            <button (mouseenter)="playSound()" (click)="nextDialogue()"> Next</button>
+            <button (mouseenter)="playSound()" (click)="showLog()"> Log</button>
+            <button (mouseenter)="playSound()" (click)="skipDialogue()"> Skip</button>
+        </div>
+    </div>
+        <h1 class="npcName" >{{currentDialogue.npc}}</h1>
+        <p #dialogueText class="typewriter" [ngClass]="{'glitchstein':currentDialogue.npc=='DR. GLITCHSTEIN'}" [ngStyle]="{'--widthCh': widthCh, '--timePerLine': lineTime}"  (keydown.space)="resetTimePerLine()" [innerHTML]="interpolatedLine"></p>
+       
+    
+</div>
