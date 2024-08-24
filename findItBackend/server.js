@@ -99,16 +99,31 @@ const mongoDBURI= process.env.NODE_ENV === 'production'
 ? process.env.MONGO_ATLAS_URI
 : process.env.MONGO_LOCAL_URI;
 const PORT = process.env.PORT || 3000;
+
 app.use((req, res, next) => {
   console.log(`Received ${req.method} request for ${req.url}`);
   next();
 });
+async function connectToDatabase() {
+  try {
+    await mongoose.connect(mongoDBURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('Successfully connected to MongoDB using Mongoose');
+  } catch (err) {
+    console.error('Failed to connect to MongoDB', err);
 
-mongoose.connect(mongoDBURI,{ useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
-    console.log('you are connected to MongoDB');
-}).catch((err)=>{
-    console.error('failed to connect to mongoDB', err)
-});
+    // Stampa informazioni dettagliate sull'errore
+    if (err.name === 'MongooseServerSelectionError') {
+      console.error('Server Selection Error:', err.reason);
+    } else {
+      console.error('Other Error:', err);
+    }
+  }
+}
+
+connectToDatabase();
 
 app.get('/levels', async (req, res) => {
     try {
