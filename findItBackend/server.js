@@ -288,7 +288,35 @@ app.post('/users', async (req, res) => {
       res.status(500).json({ message: err.message });
   }
 });
-
+app.patch('/users', async (req, res) => {
+  const { userName, tag, password, maxLevel, stars } = req.body;
+  
+  try {
+    // Trova l'utente nel database
+    let user = await users.findOne({ userName, tag });
+    
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    // Aggiorna le informazioni dell'utente
+    if (password) {
+      user.password = await bcrypt.hash(password, 10); // Aggiorna la password hashata se fornita
+    }
+    if (maxLevel !== undefined) {
+      user.maxLevel = maxLevel;
+    }
+    if (stars !== undefined) {
+      user.stars = stars;
+    }
+    
+    await user.save();
+    res.json(user);
+  } catch (err) {
+    console.log('Error updating user:', err.message);
+    res.status(500).json({ message: err.message });
+  }
+});
 //logica per lo story e dialogue component
 app.get('/story/:name', async (req, res) => {
   try {
