@@ -12,3 +12,15 @@ findItBackend/dist/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files
+*.env
+
+# IDE/editor specific files
+.vscode/
+.idea/
+
+# OS generated files
+*.swp
+*.swo
+*.swn
