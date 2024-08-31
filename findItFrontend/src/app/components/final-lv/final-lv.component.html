@@ -1,0 +1,24 @@
+<div class="hpBar">
+ <div class=" heart" *ngFor="let heart of hp, let i=index" [ngClass]="{'empty':actualHP<=i}" [ngStyle]="getBackgroundImageStyle(i)">
+ </div>
+</div>    
+
+<div class="game-container" *ngIf="this.level!== undefined">
+    <video class="backgroundVideo" autoplay muted>
+        <source [src]="backgroundVideo" type="video/mp4">
+      </video>
+    <img  [src]="backgroundImage" class="background" [ngClass]="{'shake':isShaking , 'flash':isFlashing, 'losing':isLosing}">
+    <div class="button-container">
+      <button class="button0" *ngFor="let button of buttons," [ngStyle]="getStyle(button)" (click)="buttonClick(button.label)" [ngClass]="{'glitched':phase===0,'button1':phase==1, 'fadeButton':battleWon, 'button2':phase==2,'button3':phase==3,'button4':phase==4}">
+        {{ button.label }}
+      </button>
+    </div>
+    <div class="dialogueContainer" *ngIf="showDialogue && currentNpc!== undefined">
+        <img *ngIf="currentNpc.img!==undefined"[src]="currentNpc.img">
+        <div class="dialogueBox" >
+         <h1 class="npcName" [ngClass]="{'glitchstein':currentNpc.character=='DR. GLITCHSTEIN'}">{{currentNpc.character}}</h1>
+          <p #dialogueText class="typewriter" [ngClass]="{'glitchstein':currentNpc.character=='DR. GLITCHSTEIN'}" [ngStyle]="{'--numberLine':numberLine}" >{{currentLine}}</p>
+        </div>
+    </div>
+  </div>
+  <div class="clickBlocker" *ngIf="blockClick===true" [ngClass]="{'hitted':isHitted, 'battleLost':battleLost}"></div>

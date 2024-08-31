@@ -1,0 +1,39 @@
+<div class="totalBG" [ngStyle]="{'background-image': 'url(' + apiUrl + '/public/images/roompc.jpeg)'}"></div>
+<div class="selectorContainer">
+    <h1>LEVEL SELECTOR</h1>
+    <div *ngIf="levels!=undefined" [ngStyle]="{'cursor': 'url(' + apiUrl + '/public/customCursor_1.cur), auto'}">
+        <button (mouseenter)="playSound()" *ngFor="let level of levels, let i = index" 
+            [routerLink]="'/level/' + (i+1)" 
+            [ngStyle]="maxLevel >= i ? 
+            {'background-image': 'url(' + level.imageUrl + ')','cursor': 'url(' + apiUrl + '/public/customCursor_1.cur), auto'} : {'background-color': 'grey','cursor': 'url(' + apiUrl + '/public/customCursor_1.cur), auto'}">
+          <span>Level {{i + 1}}</span>
+          <div class="rating">
+            <ng-container *ngFor="let star of [1, 2, 3]">
+                <input type="radio" 
+                [id]="'star-' + (i + 1) + '-' + star" 
+                [name]="'star-radio-' + (i + 1)" 
+                [value]="star" 
+                [checked]="star <= selectedStars[i]" 
+                (change)="selectedStars[i] = star" 
+                [disabled]="true"
+                >
+                <label [for]="'star-' + (i + 1) + '-' + star" 
+                [ngClass]="{
+                  'star': star <= selectedStars[i], 
+                  'empty-star': star > selectedStars[i]
+                }"
+                [ngStyle]="{'cursor': 'url(' + apiUrl + '/public/customCursor_1.cur), auto'}"
+              >
+                 
+                </label>
+              </ng-container>
+          </div>
+        </button>
+      </div>
+      <div *ngIf="maxLevel === 13">
+        <button id="finalLevel" [ngStyle]="{'background-image': 'url(' + apiUrl + '/public/images/digital3.png)'}" [routerLink]="'/finalLevel'">
+          <span>Final Level</span>
+        </button> 
+      </div>
+    </div>
+    <app-side-menu></app-side-menu>

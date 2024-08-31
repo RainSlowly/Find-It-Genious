@@ -1,0 +1,296 @@
+
+.storyContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;;
+    transition: 0.9s ease-out;
+}
+
+
+.npcLeft{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    left:10%;
+    bottom:200px;
+    transition: 0.3s ease-in;
+}
+
+.npcRight{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    left:70%;
+    bottom:200px;
+    transition: 0.3s ease-in;
+
+}
+.mirrored{
+  transform: scaleX(-1);
+}
+.active {
+  transform: scale(1.2) ; 
+
+}
+.npcLeft img{
+  width: 100%;
+  transition: 0.3s ease-in;}
+.npcRight img{
+  width: 100%;
+  transition: 0.3s ease-in;}
+  
+.activeRight {
+  transform: scale(1.2);
+
+}
+.inactive {
+  filter: contrast(70%);
+}
+
+   
+.dialogueContainer {
+    position: absolute;
+    top: 60%;
+    height: 20%;
+    width: 89%;
+    margin: 5%;
+    background-color: rgba(0, 204, 255);
+    text-align: left;
+    overflow: hidden;
+     border-radius: 15px;
+}
+.dialogueContainer::before{
+  content: '';
+  position: absolute;
+  width:100%;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  height: 130%;
+  animation: rotBGimg 5s ease-in infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dialogueContainer::after {
+  content: '';
+  position: absolute;
+  background: rgba(0, 204, 255);
+  ;
+  inset: 5px;
+  border-radius: 15px;
+  z-index: 0;
+}  
+
+.npcName {
+    color: aliceblue;
+    text-transform: uppercase;
+    text-shadow: black;
+    font-size: 1.8rem;
+    margin: 0.7%;
+    z-index: 2;
+    position: absolute;
+    top: 61%;
+    left: 3%;
+    margin: 5%;
+}
+
+@keyframes grow {
+    0% { max-height: var(--lineHeight); }
+    100% { max-height: calc(var(--lineHeight) * var(--lines)); }
+  }
+  
+  @keyframes carriageReturn {
+    0% { top: 0; }
+    100% { top: calc(var(--lineHeight) * var(--lines)); }
+  }
+  
+  @keyframes type {
+    0% { width: 100%; }
+    100% { width: 0%; }
+  }
+  
+  @keyframes caret {
+    0% { color: var(--bgColor); }
+    100% { color:aliceblue; }
+  }
+  
+  .typewriter {
+    top: 65%;
+    left: 5%;
+    margin: 5%;
+    --bgColor: rgba(0, 204, 255);
+    --lines: 50;
+    --lineHeight: 32px;
+    --timePerLine:3s;
+    --widthCh: 0;
+    --width: calc(var(--widthCh) * 1ch);
+    /* do not touch the time property!!! */
+    --time: calc(var(--lines) * var(--timePerLine));
+    animation: grow var(--time) steps(var(--lines));
+    animation-fill-mode: forwards;
+    background: var(--bgColor);  
+    line-height: var(--lineHeight);
+    max-height: var(--lineHeight);
+    overflow: hidden;
+    font-size: 28px;
+    position: relative;
+    width: var(--width);
+    max-width: 88%;
+    color: aliceblue;
+    margin-left: 0.7%;
+    z-index: 2;
+    /* word-break: break-all; */
+  }
+  
+  .typewriter::before {
+    content: "";
+    animation: 
+      type var(--timePerLine) linear var(--numberLine) forwards, 
+      carriageReturn var(--time) steps(var(--lines)) var(--lines),
+      caret 0.5s steps(2) infinite;
+    background: var(--bgColor);
+    border-left: 1px solid;
+    bottom: 0;
+    height:48px;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+
+  .chatLog{
+    position: absolute;
+    top: 5%;
+    left: 15.5%;
+    width: 69%;
+    height: 55%;
+    background-color: rgba(27, 163, 216, 0.684);
+ 
+  }
+  .chatLog h1{
+    position: absolute;
+    font-family: 'ensign', sans-serif;
+    font-size: 2.3rem;
+    top: 1%;
+    left: 10%;
+    color: aliceblue;
+    filter: drop-shadow(1px 1px 1px grey);
+  }
+  
+  .logs{
+    position: relative;
+    width: 88.5%;
+    height: 70%;
+    left:3%;
+    top: 11%;
+    color: aliceblue;
+    font-size: 1.2rem;
+    z-index: 10;
+    padding: 3%;
+    overflow-y: auto;
+    scrollbar-color: rgba(0, 204, 255) rgb(211, 211, 211);
+    scrollbar-width: thin;
+    cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
+  }
+  .chatLog button {
+    position: absolute;
+    left: 88%;
+    top: 1%;
+  }
+
+  .buttonContainer{
+    z-index: 6;
+    position: relative;
+    top: 65%;
+    left: 80%;
+    width: 45%;
+  }
+button{
+ cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  border: 3px solid #fff;
+  padding: 1% 3%;
+  font-size: 1.2rem;
+  margin: 1%;
+}
+
+button::after, button::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  transition-delay: 0.4s;
+  transition: 1s;
+}
+
+button::after {
+  top: -3px;
+  left: -3px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+
+button::before {
+  bottom: -3px;
+  right: -3px;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+button:hover {
+  color: #0668C9;
+}
+
+button:hover::after,
+button:hover::before {
+  width: calc(50% + 3px);
+  height: calc(50% + 3px);
+  border-color: #0668C9;
+}
+    
+.summaryContainer{
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  width: 20%;
+  height: 50%;
+  color: aliceblue;
+  font-size: 1.4rem;
+  background-color: rgba(27, 163, 216, 0.684);
+  z-index: 10;
+  padding: 13px;
+  text-align: center;
+  border-radius: 10%;
+
+}
+
+.buttonContainerSkip{
+position: absolute;
+top: 80%;
+left: 33.5%;
+}
+
+.glitchstein{
+  font-family: 'glitch', sans-serif;
+}
+
+.blockClick{
+  position: absolute;
+  z-index: 9;
+  width: 1990px;
+  height: 1100px;
+  top: -10px;
+  left: -10px;
+}

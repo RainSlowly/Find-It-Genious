@@ -1,0 +1,146 @@
+body{
+  background-color: rgba(0, 204, 255);
+}
+
+.credits-container {
+    position: relative;
+    height: 100%; /* Altezza del contenitore, modifica se necessario */
+    overflow: hidden;
+    background:rgba(0, 204, 255);
+    color: rgba(0, 204, 255);
+    font-size: 1.5em; /* Dimensione del font, modifica se necessario */
+  }
+  
+  .credits {
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    bottom: 0%;
+    animation: rollCredits 20s linear forwards ;
+    text-align: center;
+    background-color: rgba(0, 204, 255);
+  }
+
+  .content{
+    position: relative;
+    top: 950px;
+  }
+  .content p {
+    font-size: 1.2rem;
+  }
+
+  .content h1 {
+    font-size: 3.5rem;
+  }
+
+  @keyframes rollCredits {
+    0% {
+      bottom: -200%;
+    }
+    100% {
+      bottom: 0%;
+    }
+  }
+
+  .marsh{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    top: 89%;
+    left: 2%;
+  }
+
+  .ezio{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    transform: scaleX(-1);
+    top: 89%;
+    left: 80%;
+  }
+  .magda{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    transform: scaleX(-1);
+    top: 12%;
+    left:1%;
+  }
+
+  .isobald{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    top: -18%;
+    left:75%;
+  }
+
+  .zwei{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    transform: scaleX(-1);
+    top: 108%;
+    left:40%;
+  }
+
+  .logo{
+    position: absolute;
+    width: 40%;
+    height: auto;
+    top: -60%;
+    left: 30%;
+  }
+
+  button{
+    cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
+     font-weight: 600;
+     display: inline-block;
+     position: relative;
+     border: 3px solid #fff;
+     padding: 1% 3%;
+     font-size: 1.2rem;
+     margin: 1%;
+   }
+   
+   button::after, button::before {
+     position: absolute;
+     content: "";
+     width: 0;
+     height: 0;
+     transition: .5s;
+   }
+   
+   button::after {
+     top: -3px;
+     left: -3px;
+     border-top: 3px solid transparent;
+     border-left: 3px solid transparent;
+   }
+   
+   button::before {
+     bottom: -3px;
+     right: -3px;
+     border-bottom: 3px solid transparent;
+     border-right: 3px solid transparent;
+   }
+   
+   button:hover {
+     color: #0668C9;
+   }
+   
+   button:hover::after,
+   button:hover::before {
+     width: calc(50% + 3px);
+     height: calc(50% + 3px);
+     border-color: #0668C9;
+   }
+
+   .return{
+    position: absolute;
+    top: 136%;
+    left:44%;
+   }
+  
+
+  
