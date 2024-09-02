@@ -18,10 +18,12 @@ app-image-magnifier{
 .hintContainer{
   position: absolute;
   z-index: 100;
+  width: 10%;
+  height: 10%;
 }
 .hintContainer img {
-  width: 200px;
-  height: 200px;
+  width: 180%;
+  height: auto;
 }
 .correctContainer{
   position: absolute;
@@ -30,12 +32,12 @@ app-image-magnifier{
   height: 10%;
 }
 .correctContainer img {
-  width: 200px;
-  height: 150px;
+  width: 210%;
+  height: auto;
 }
 .imageFindContainer {
     position: relative;
-    top: 80px;
+    top: 8.4%;
     left: 20%;
     width: 57%;
     height: auto;
@@ -46,14 +48,14 @@ app-image-magnifier{
 
 .toFindContainer{
     position: relative;
-    top:77px;
+    top:8.3%;
     left: 20%;
     width: 57.6%;
     height: 8%;
     display: flex;
     flex-wrap: nowrap;
     border: black solid 2px;
-    margin-top: 10px;
+    margin-top: 0.4%;
     align-items: center;
     justify-content: center;
 }
@@ -93,11 +95,11 @@ app-image-magnifier{
     
     position: absolute;
 
-    width: 600px;
+    width: 30%;
     height: 50px;
     margin: 15px auto;
     border: 1px solid #fff;
-    padding: 8px 5px;
+    padding: 0.4% 0.25%;
     box-shadow: 0 0 10px #aaa;
     top: -1%;
     left: 34%;
@@ -200,8 +202,8 @@ app-image-magnifier{
   .zoomImg{
     display: inline-block;
     position: absolute;
-    width: 118px;
-    height: 118px;
+    width: 6.2%;
+    height: auto;
     left: 13%;
     top: 9%;
     z-index: 1;
@@ -209,8 +211,8 @@ app-image-magnifier{
   .hintImg{
     display: inline-block;
     position: absolute;
-    width: 118px;
-    height: 118px;
+    width: 6.2%;
+    height: auto;
     left: 13%;
     top: 19%;
     z-index: 1;
@@ -398,7 +400,7 @@ app-image-magnifier{
 .pointsContainer{
   position: absolute;
   top: -3%;
-  left: 20px;
+  left: 3%;
 }
 .points{
   position: relative;

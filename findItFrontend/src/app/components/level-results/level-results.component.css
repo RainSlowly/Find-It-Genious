@@ -29,10 +29,10 @@
   
 .npc{
     position: absolute;
-    width: 440px;
+    width: 21%;
     height: auto;
-    top: 105px;
-    left: 950px;
+    top: 10%;
+    left: 50%;
     animation: slideInFromRight 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation-delay: 0.7s ;
     opacity: 0;
@@ -42,17 +42,19 @@
 
 .npcContainer{
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 20px;
 }
 
 .speech-bubble {
 	position: absolute;
-  top: 105px;
-  left: 1200px;
-  width: 250px;
+  top: 9.5%;
+  left: 61%;
+  width: 13%;
   text-align: center;
   color: aliceblue;
-  padding: 1px;
+  padding: 0.05%;
 	background: rgba(0, 204, 255, 0.562);
 	border-radius: .4em;
   animation: slideInFromRight 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -114,7 +116,7 @@
   
   .card-section {
     flex-grow: 1;
-    padding: 20px;
+    padding: 3.6%;
   }
   
   .card-info {
@@ -142,9 +144,9 @@
     background: #fff;
     border-radius: 50%;
     display: inline-block;
-    height: 60px;
-    margin: 50px 0;
-    padding: 40px;
+    height: 7%;
+    margin: 4% 1%;
+    padding: 14%;
     box-shadow: 0 4px 15px -10px rgba(0, 0, 0, .1), 0 5px 15px 1px rgba(0, 0, 0, .18), 0 0 0 15px #fff, 0 0 0 22px #e45b6c, 0 55px 50px -20px rgba(34,36,38,.25);
   }
   
@@ -165,7 +167,7 @@
   
   .statistic {
     padding: 0px 20px;
-    min-width: 120px;
+    min-width: 150px;
   }
   
   .statistic:not(:last-child) {
@@ -319,9 +321,9 @@
    }
 
    .levelBonus{
-    position: fixed;
-    top: 72%;
-    left: 4%;
+    position: absolute;
+    top: 74%;
+    left: 25%;
     width: 50%;
     height: 50%;
     font-size: 1.3rem;
@@ -353,8 +355,8 @@
    
 .rating {
   position: absolute;
-  left: 25%;
-  bottom: -2vh;
+  left: 22%;
+  bottom: -8%;
   display: flex;
   gap: 0.3rem;
   --stroke: #666;

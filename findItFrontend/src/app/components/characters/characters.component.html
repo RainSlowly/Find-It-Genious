@@ -1,4 +1,4 @@
-<div class="totalBG" [ngStyle]="{'background-image': 'url(' + apiUrl + '/images/workLab.png)'}"></div>
+<div class="totalBG" [ngStyle]="{'background-image': 'url(' + apiUrl + 'public/images/workLab.png)'}"></div>
 <div *ngIf="characters!==undefined" class="sidebar">
     <header>Character Profiles</header>
     <a *ngFor="let character of characters, let i=index" (mouseenter)="playSound()" (click)="showChara(i)">

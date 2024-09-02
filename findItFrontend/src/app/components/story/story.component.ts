@@ -116,8 +116,7 @@ this.startTypingSound()
       dialogueText.offsetHeight; // Trucco per forzare il repaint del browser
       dialogueText.style.display = 'block'; // Riporta l'elemento a display block
     }
-   
-      if (this.currentBackground !== this.story.dialogue[this.currentLine].background) {
+     if (this.currentBackground !== this.story.dialogue[this.currentLine].background) {
       this.currentBackground = this.story.dialogue[this.currentLine].background;
       }
      if (this.npcSlots.left.name === this.currentDialogue.npc) {

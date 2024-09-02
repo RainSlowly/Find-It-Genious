@@ -64,10 +64,11 @@ button{
    }
 
    .bg {
-    position:absolute;
-    height: 101%;
+    position:fixed;
+    width: 3300px;
+    height: auto;
     top:-1px;
-    left: -66%;
+    left: -1300px;
     animation: slideInFromRight 4s ease forwards;
     animation-delay: 0.1s ;
     opacity: 0;
@@ -75,7 +76,7 @@ button{
    }
 
    .logo {
-    position:fixed ;
+    position:absolute ;
     width: 28%;
     height: auto;
     top: 1%;
@@ -88,7 +89,7 @@ button{
    }
 
    .marsh{
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: auto;
     right: 3%;
@@ -100,7 +101,7 @@ button{
   .ezio{
     animation: slideInFromRightM 1.8s ease forwards;
     animation-delay: 1.5s;
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: auto;
     right: 10%;
@@ -191,6 +192,9 @@ a{
 .audioSettings div{
   margin-top: 3%;
   cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
+}
+.audioSettings input{
+   cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
 }
 .audioSettings button{
   position: relative;

@@ -71,13 +71,9 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
 
   ngOnInit(): void {
     this.maxLevel=this.loginService.user.actualMaxLevel
-    console.log(this.loginService.user)
     const id= this.route.snapshot.params
-    console.log('Parametro id (snapshot):', id);
     this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      console.log('Parametro id:', id);
-      console.log(this.currentLevel)
+      const id = params.get('id')
       if (id !== null) {
         this.currentLevel = +id;
         if(this.currentLevel>this.maxLevel){
@@ -218,12 +214,10 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
         this.timeModifier = this.currentTime / this.totalTime;
         const obtainedPoints = area.points * this.timeModifier;
         this.currentPoints += obtainedPoints;
-        this.calculateCenter(area)
         this.clickPosition = { 
-          x: area.centerX-60, 
-          y: area.centerY-48
+          x: event.clientX - 496, 
+          y: event.clientY - 170
         };
-        console.log(this.clickPosition)
         if(this.currentLevel!== 12){
         this.correctImage = `${environment.apiUrl}/public/images/correct.gif?${new Date().getTime()}`;
         this.correctVisible = true;
@@ -241,7 +235,6 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
         area.founded = true; 
         
         const allFounded = this.images.areas.every((area: any) => area.founded)
-        console.log(allFounded)
         if (this.images.isSpecial===true){
         this.updateObjectives()
       } else if (allFounded) {
@@ -401,7 +394,6 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
     this.hintVisible=true;
     setTimeout(()=>{
     this.hintVisible=false},2240)
-    console.log(this.hintPosition.x,this.hintPosition.y,area)
   }
 
   endLevel():void{
@@ -410,6 +402,5 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
      this.notFounded= this.images.areas.filter((area:any) => area.founded === false  
         ).length;
     this.levelsService.obtainLevelPoints(this.currentPoints,this.currentTime,this.usedHint,this.usedZoom,this.notFounded);
-    console.log(this.currentPoints,this.currentTime,this.usedHint,this.usedZoom,this.notFounded)
   }
 }
