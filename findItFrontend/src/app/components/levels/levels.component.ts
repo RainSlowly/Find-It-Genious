@@ -214,6 +214,7 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
         this.timeModifier = this.currentTime / this.totalTime;
         const obtainedPoints = area.points * this.timeModifier;
         this.currentPoints += obtainedPoints;
+        this.calculateCenter(area)
         this.clickPosition = { 
           x: event.clientX - 496, 
           y: event.clientY - 170

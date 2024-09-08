@@ -13,6 +13,7 @@ import { CreditsComponent } from './components/credits/credits.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { CharactersComponent } from './components/characters/characters.component';
+import { MessageComponent } from './components/message/message.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'credits/:id', component:CreditsComponent},
   {path: 'tutorial', component: TutorialComponent},
   {path: 'characters', component: CharactersComponent},
+  {path: 'message', component: MessageComponent},
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 
 

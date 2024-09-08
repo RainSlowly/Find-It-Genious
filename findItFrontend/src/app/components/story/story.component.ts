@@ -185,13 +185,14 @@ this.startTypingSound()
     }
   }
   nextPage():void{
+    this.stopTyping();
     this.audioService.play('https://find-it-genious.onrender.com/public/audio/button.mp3', 'SFX', false)
     if(this.currentStory===14){
       this.navigationService.goToNextPage(1,"credits")
     } else if (this.currentStory===15){
       this.navigationService.goToNextPage(2,"credits")
     }else if (this.currentStory===0){
-      this.router.navigate(['/tutorial'])
+      this.router.navigate(['/message'])
     }else if (this.currentStory===13){
       this.router.navigate(['/finalLevel'])
     }else{
@@ -201,6 +202,7 @@ this.startTypingSound()
   }
 
   resetTimePerLine() {
+    this.stopTyping();
     this.lineTime = '0.1s';
   }
 

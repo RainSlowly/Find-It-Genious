@@ -19,6 +19,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { CharactersComponent } from './components/characters/characters.component';
+import { MessageComponent } from './components/message/message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { CharactersComponent } from './components/characters/characters.componen
     SideMenuComponent,
     TutorialComponent,
     CharactersComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

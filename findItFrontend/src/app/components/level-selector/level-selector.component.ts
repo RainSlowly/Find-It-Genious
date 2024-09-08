@@ -31,22 +31,21 @@ private soundTimeout: any;
         const numB = parseInt(b.name.replace('level', ''), 10);
         return numA - numB;
       });
-    
-      // Filtra i livelli per mantenere solo quelli da level1 a level13
       this.levels = data.filter((item: any) => {
         const levelNumber = parseInt(item.name.replace('level', ''), 10);
         return levelNumber >= 1 && levelNumber <= 13;
       });
       this.maxLevel = this.loginService.user.actualMaxLevel;
       this.userStars = this.loginService.user.actualStars;
-      console.log(this.userStars, this.loginService.user)
+      this.levels.forEach((level, index) => {
+        const stars = this.getStarsForLevel(index + 1);
+        this.selectedStars[index] = stars;
+        console.log(this.selectedStars, stars)
+      });
 
     })
     this.audioService.play(environment.apiUrl + '/public/audio/labSfx.mp3', "BGAudio",true);
-    this.levels.forEach((level, index) => {
-      const stars = this.getStarsForLevel(index + 1);
-      this.selectedStars[index] = stars;
-    });
+ 
   }
  
 

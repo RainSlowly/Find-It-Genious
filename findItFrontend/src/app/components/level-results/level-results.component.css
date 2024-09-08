@@ -323,8 +323,10 @@
    .levelBonus{
     position: absolute;
     top: 74%;
-    left: 25%;
-    width: 50%;
+    left: 23%;
+    text-align: center;
+    justify-content: center;
+    width: 55%;
     height: 50%;
     font-size: 1.3rem;
     text-shadow: #343d4d;
