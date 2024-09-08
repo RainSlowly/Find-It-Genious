@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MessageComponent implements OnInit {
 messageVisible:boolean=false;
 inputVisible:boolean=false;
-messages:any[]=["Vuoi saltare il tutorial e iniziare subito a giocare? (Perderai alcune parti della storia non estremamente influenti)", "Sei sicuro di voler saltare il tutorial? Sicuro sicuro? Va bene ma dovrai leggere una veloce spiegazione del gioco."];
+messages:any[]=["Il gioco offre un tutorial per capire i concetti base e le sue funzioni. Se lo desideri puoi saltare il tutorial e giocare direttamente dal primo livello! Vuoi saltare il tutorial e iniziare subito a giocare? (Perderai alcune piccole parti della storia iniziale.)", "Sei davvero sicuro di voler saltare il tutorial? Sicuro sicuro? Va bene ma dovrai leggere una veloce spiegazione del gioco per capire almeno le funzioni di base."];
 message:string="";
 constructor( private audioService:AudioService,
              private router:Router

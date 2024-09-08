@@ -14,11 +14,14 @@ color: aliceblue;
  justify-content: center;
  text-align: center;
  padding: 1%;
+ 
 }
 
 .messageBox p{
 font-size: 1.6rem;
-position: absolute;
+position: relative;
+top: 25%;
+left: -1%;
 }
 
 .messageBox .buttonContainer{
@@ -37,12 +40,15 @@ position: absolute;
     justify-content: center;
     text-align: center;
     padding: 1%;
+    overflow-y: auto;
+    scrollbar-color: rgba(0, 204, 255) rgb(211, 211, 211);
+    scrollbar-width: thin;
    }
 
    .inputBox button{
-    position: absolute;
-    bottom: 5%;
-    left: 40%;
+    position: relative;
+    top: -2%;
+    left: 0%;
    }
 
 .input-list {
@@ -58,7 +64,7 @@ position: absolute;
 }
 
 .input-list img {
-  width: 7%; /* Immagine larga il 10% del div */
+  width: 12%; /* Immagine larga il 10% del div */
   height: auto;
   object-fit: cover; /* Mantiene le proporzioni quadrate dell'immagine */
   margin-right: 10px; /* Spazio tra immagine e testo */
@@ -68,9 +74,13 @@ position: absolute;
   white-space: nowrap; /* Evita che il testo vada a capo */
   overflow: hidden;
   text-overflow: ellipsis; /* Tronca il testo se è troppo lungo */
-  font-size: 1.3rem;
+  font-size: 1.35rem;
 }
-
+.input-list h3 {
+position: relative;
+left: 8%;
+font-size: 1.35rem;
+}
 button{
   cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
    font-weight: 600;

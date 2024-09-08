@@ -54,7 +54,10 @@ app-side-menu{
     overflow-x: auto;
     overflow-y:hidden ;
     scroll-snap-type: x mandatory;
+    scrollbar-color: rgba(0, 204, 255) rgb(211, 211, 211);
+    scrollbar-width: thin;
     transition: .5s ease;
+    cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
  
   }
   
@@ -241,6 +244,7 @@ app-side-menu{
     border: none;
     padding: 0;
     margin: 0;
+    cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
   }
   button.left i, button.right i{
     opacity: 1;
@@ -250,6 +254,7 @@ app-side-menu{
   }
   button.left:hover i, button.right:hover i {
     color: #555;
+    cursor: url("https://find-it-genious.onrender.com/public/customCursor_1.cur") ,auto;
   }
   .left{
     top: 50%;

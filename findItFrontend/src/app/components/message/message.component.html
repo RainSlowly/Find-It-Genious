@@ -7,8 +7,8 @@
         </div>
     </div>
     <div *ngIf="inputVisible" class="inputBox">
-        <h2>·Input e Tasti·</h2>
-        <h3> Livello di gioco</h3>
+        <h1>·Input e Tasti·</h1>
+        <h2> Livello di gioco</h2>
         <ul class="input-list">
             <li>
                 <img src="https://find-it-genious.onrender.com/public/customCursor_1.cur">
@@ -27,7 +27,7 @@
                 <span>Clicca sul quadrato in alto a destra dello schermo per aprire il menù.</span>
             </li>
             <li>
-            <span>Trova tutti gli oggetti più velocemente possibile per ottenere il maggior numero di punti!</span>
+            <h3><i>Trova tutti gli oggetti più velocemente possibile per ottenere il maggior numero di punti!</i></h3>
             </li>
          </ul>
 
@@ -37,13 +37,23 @@
                 <img src="https://find-it-genious.onrender.com/public/images/inputs.png">
                 <span>Utilizza i tasti per progredire nel dialogo, leggere i log o saltare la scena.</span>
             </li>
-        <img src="https://find-it-genious.onrender.com/public/images/space.png"><span>Utilizza questo tasto sulla tastiera per completare il caricamento della linea di dialogo.</span>
-        <img src="https://find-it-genious.onrender.com/public/images/enter.png"><span>Utilizza questo tasto sulla tastiera per progredire nel dialogo.</span>
-        <img src="https://find-it-genious.onrender.com/public/images/tab.png"><span>Utilizza questo tasto sulla tastiera per aprire e chiudere i log.</span>
-        <img src="https://find-it-genious.onrender.com/public/images/shift.png"><span>Utilizza questo tasto sulla tastiera per automatizzare il dialogo.</span>
-        <button (mouseenter)="playSound()" (click)="skipTutorial()">Ho capito!</button>
-        
+            <li>
+                <img src="https://find-it-genious.onrender.com/public/images/spacebar.png">
+                <span>Utilizza questo tasto sulla tastiera per completare il caricamento della linea di dialogo.</span>
+            </li>
+            <li>
+              <img src="https://find-it-genious.onrender.com/public/images/enter.png">
+              <span>Utilizza questo tasto sulla tastiera per progredire nel dialogo.</span>
+            </li>
+            <li>
+              <img src="https://find-it-genious.onrender.com/public/images/tab.png">
+              <span>Utilizza questo tasto sulla tastiera per aprire e chiudere i log.</span>
+            </li>
+            <li>
+              <img src="https://find-it-genious.onrender.com/public/images/shift.png">
+              <span>Utilizza questo tasto sulla tastiera per automatizzare il dialogo.</span>
+            </li> 
         </ul>
-  
+        <button (mouseenter)="playSound()" (click)="skipTutorial()">Ho capito!</button>
     </div>
 </div>
