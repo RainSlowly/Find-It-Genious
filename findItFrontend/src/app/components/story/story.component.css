@@ -289,29 +289,45 @@ left: 33.5%;
 .autoSymbol{
   position: absolute;
   z-index: 2;
+  width: 2.5%;
+  height: 4%;
   top: 1%;
   display: flex;
   flex-wrap:wrap;
+  text-align: center;
   left: 92%;
+  opacity: 0.8;
+  animation: fade 2s ease forwards;
+  animation-delay: 6s;
+}
+
+.autoSymbol span {
+  position: absolute;
+  top: 25%;
+  left: 42%;
 }
 
 #fwd1{
-  position: relative;
+  position: absolute;
+  left: 6%;
+  top: 17.5%;
   height: 70%;
   width: auto;
-  animation: grow 1s ease infinite;
+  animation: grow 2s ease infinite;
 }
 #fwd2{
-  position: relative;
+  position: absolute;
+  left: 22%;
+  top: 17.5%;
   height: 70%;
   width: auto;
-  animation: grow 1s ease infinite;
-  animation-delay: 0.3s;
+  animation: grow 2s ease infinite;
+  animation-delay: 0.7s;
 }
 
 @keyframes grow{
-  0% { transform: scale(0.96)}
-  100%{transform: scale(1);}
+  0%,100% { transform: scale(0.96)}
+  50%{transform: scale(1.1);}
 }
 
 .autoOff{
@@ -329,7 +345,7 @@ left: 33.5%;
   animation-delay: 4s;
 }
 @keyframes fade{
-  0% { opacity:1}
+  0% { opacity:0.8}
   100%{ opacity: 0; display: none;}
 }
 
