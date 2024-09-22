@@ -28,11 +28,18 @@
             <button (mouseenter)="playSound()" (click)="nextDialogue()"> Next</button>
             <button (mouseenter)="playSound()" (click)="showLog()"> Log</button>
             <button (mouseenter)="playSound()" (click)="skipDialogue()"> Skip</button>
+            <button (mouseenter)="playSound()" (click)="toggleAutoMode()"> Auto</button>
         </div>
     </div>
         <h1 class="npcName" >{{currentDialogue.npc}}</h1>
         <p #dialogueText class="typewriter" [ngClass]="{'glitchstein':currentDialogue.npc=='DR. GLITCHSTEIN'}" [ngStyle]="{'--widthCh': widthCh, '--timePerLine': lineTime, '--numberLine':numberLine}"  (keydown.space)="resetTimePerLine()" [innerHTML]="interpolatedLine"></p>
        
-    
+    <button *ngIf="isAutoMode" class="autoSymbol" (click)="toggleAutoMode()">
+        <img id="fwd1" src="https://find-it-genious.onrender.com/public/images/fwd.png"> 
+        <img id="fwd2" src="https://find-it-genious.onrender.com/public/images/fwd.png">
+           AUTO</button>
+    <button *ngIf="!isAutoMode" class="autoOff">
+        <img id="pause" src="https://find-it-genious.onrender.com/public/images/pause.png">
+    OFF</button>
 </div>
-<div *ngIf="skipOpen || logOpen" class="blockClick" (click)="closeOpen()"></div>
+<div *ngIf="skipOpen || logOpen || isAutoMode" class="blockClick" (click)="closeOpen()"></div>

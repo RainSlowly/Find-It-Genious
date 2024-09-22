@@ -212,7 +212,7 @@
     z-index: 6;
     position: relative;
     top: 65%;
-    left: 80%;
+    left: 74%;
     width: 45%;
   }
 button{
@@ -284,6 +284,53 @@ left: 33.5%;
 
 .glitchstein{
   font-family: 'glitch', sans-serif;
+}
+
+.autoSymbol{
+  position: absolute;
+  z-index: 2;
+  top: 1%;
+  display: flex;
+  flex-wrap:wrap;
+  left: 92%;
+}
+
+#fwd1{
+  position: relative;
+  height: 70%;
+  width: auto;
+  animation: grow 1s ease infinite;
+}
+#fwd2{
+  position: relative;
+  height: 70%;
+  width: auto;
+  animation: grow 1s ease infinite;
+  animation-delay: 0.3s;
+}
+
+@keyframes grow{
+  0% { transform: scale(0.96)}
+  100%{transform: scale(1);}
+}
+
+.autoOff{
+  position: absolute;
+  display: flex;
+  flex-wrap:wrap;
+  z-index: 2;
+  top: 1%;
+  left: 92%;
+  width: 5%;
+  height: 5%;
+  text-align: center;
+  align-items: center;
+  animation: fade 2s ease forwards;
+  animation-delay: 4s;
+}
+@keyframes fade{
+  0% { opacity:1}
+  100%{ opacity: 0; display: none;}
 }
 
 .blockClick{

@@ -31,6 +31,7 @@ export class StoryComponent implements OnInit, OnDestroy{
   bgMusic:string="";
   log:{npc:any,line:any} = {npc:null,line:null}
   logs=[this.log] 
+  isAutoMode:boolean=false;
 
   constructor(
     private npcService:NpcService,
@@ -182,6 +183,8 @@ this.startTypingSound()
       this.closeSkip();
     }if (this.logOpen){
       this.closeLog();
+    }if (this.isAutoMode){
+      this.isAutoMode=false;
     }
   }
   nextPage():void{
@@ -197,7 +200,31 @@ this.startTypingSound()
       this.router.navigate(['/finalLevel'])
     }else{
     this.navigationService.goToNextPage(this.currentStory,"level")
-    console.log(this.currentStory)
+   
+    }
+  }
+
+  toggleAutoMode():void {
+    this.isAutoMode = !this.isAutoMode;
+    if (this.isAutoMode) {
+      this.nextDialogue();
+      this.autoAdvance();
+    }
+  }
+
+  autoAdvance():void{
+    const dialogueText = this.elementRef.nativeElement.querySelector('.typewriter');
+  
+    if (dialogueText && isPlatformBrowser(this.platformId) && this.isAutoMode) {
+      // Ascolta il completamento dell'animazione
+      dialogueText.addEventListener('animationend', () => {
+        setTimeout(() => {
+          this.nextDialogue();
+          if (this.currentLine < this.story.dialogue.length && this.isAutoMode) {
+            this.autoAdvance(); // Continua fino alla fine o fino a quando auto-mode è attivo
+          }
+        }, 2000); // Aggiunge una pausa di 3 secondi prima di passare alla prossima linea
+      }, { once: true }); // Listener sarà attivo una sola volta per ogni animazione
     }
   }
 
@@ -251,12 +278,6 @@ this.startTypingSound()
 
 playSound(): void{
   this.audioService.play('https://find-it-genious.onrender.com/public/audio/buttonHover.mp3', 'SFX', false)
-}
-
-autoDialogue():void{
-  //fare in modo che let lineToEnd sia pari a line totale - currentline e che calcoli il time totale della frase +1.5 secondi 
-  //e poi vada next e che lo faccia fino alla fine.
-  //per annullarla metti un timeoutid e fai una funzione inversa
 }
 
   ngOnDestroy(): void {
