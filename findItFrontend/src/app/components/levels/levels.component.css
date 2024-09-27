@@ -37,7 +37,7 @@ app-image-magnifier{
 }
 .imageFindContainer {
     position: relative;
-    top: 8.4%;
+    margin-top: 4.2%;
     left: 20%;
     width: 57%;
     height: auto;
@@ -48,7 +48,7 @@ app-image-magnifier{
 
 .toFindContainer{
     position: relative;
-    top:8.3%;
+    margin-top:1.3%;
     left: 20%;
     width: 57.6%;
     height: 8%;
@@ -71,7 +71,7 @@ app-image-magnifier{
 
 .objectiveContainer{
   position: relative;
-  margin-top: 5%;
+  margin-top: 1.3%;
   left: 20%;
   width: 57%;
 }

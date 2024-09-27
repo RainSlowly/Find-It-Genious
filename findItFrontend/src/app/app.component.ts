@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { AudioService } from './service/audio.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,24 @@ import { isPlatformBrowser } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'find-it-genious';
   isPlatFormBrowser:boolean;
+  isDarkMode:boolean=false;
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object){this.isPlatFormBrowser = isPlatformBrowser(platformId)}
+  constructor(@Inject(PLATFORM_ID) platformId: Object,
+              private audioService:AudioService){
+    this.isPlatFormBrowser = isPlatformBrowser(platformId)}
 
   ngOnInit() {
     this.scaleContent();
+    this.audioService.darkMode$.subscribe((isDark)=>{
+      this.isDarkMode=isDark;
+      if ( this.isPlatFormBrowser && this.isDarkMode) {
+        document.body.classList.add('darkMode');
+      } else if(this.isPlatFormBrowser && this.isDarkMode!==true){
+        document.body.classList.remove('darkMode');
+      }
+      console.log('Dark mode:', this.isDarkMode);
+
+    })
   }
 
   @HostListener('window:resize', ['$event'])

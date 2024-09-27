@@ -22,15 +22,12 @@ export class CreditsComponent implements OnInit, OnDestroy{
   ){}
 
   ngOnInit(): void {
-   this.id= this.route.snapshot.params
-    console.log('Parametro id (snapshot):', this.id);
+   this.id= this.route.snapshot.params;
     this.route.paramMap.subscribe(params => {
       this.id= params.get('id');})
-      console.log(this.id)
       if(this.id==1){
         this.audioService.play(environment.apiUrl + '/public/audio/soon.mp3',"BGMusic", false)
         this.marshImg=this.marshImg+".png";
-        console.log(this.marshImg,this.ezioImg);
         this.ezioImg=this.ezioImg+".png";
         this.magdaImg=this.magdaImg+".png";
         this.isobaldImg=this.isobaldImg+".png";

@@ -23,3 +23,17 @@ body, html {
     font-weight: normal;
     font-style: normal;
   }
+
+  .darkMode{
+    background-color: #121212;
+    color: aliceblue;
+  }
+  
+  .darkMode .objective p {
+    color: aliceblue;
+  }
+
+  body.darkMode {
+    background-color: #121212 !important;
+    color: aliceblue;
+  }

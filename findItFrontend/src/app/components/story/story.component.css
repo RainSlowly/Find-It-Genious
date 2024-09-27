@@ -296,7 +296,7 @@ left: 33.5%;
   flex-wrap:wrap;
   text-align: center;
   left: 92%;
-  opacity: 0.8;
+  opacity: 0.65;
   animation: fade 2s ease forwards;
   animation-delay: 6s;
 }
@@ -335,17 +335,32 @@ left: 33.5%;
   display: flex;
   flex-wrap:wrap;
   z-index: 2;
+  opacity: 0.65;
   top: 1%;
   left: 92%;
-  width: 5%;
-  height: 5%;
+  width: 2.5%;
+  height: 4%;
   text-align: center;
   align-items: center;
   animation: fade 2s ease forwards;
   animation-delay: 4s;
 }
+.autoOff span {
+  position: absolute;
+  top: 25%;
+  left: 42%;
+}
+
+#pause{
+  position: absolute;
+  left: 9%;
+  top: 1%;
+  height: 100%;
+  width: auto;
+}
+
 @keyframes fade{
-  0% { opacity:0.8}
+  0% { opacity:0.65}
   100%{ opacity: 0; display: none;}
 }
 

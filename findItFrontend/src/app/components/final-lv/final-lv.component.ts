@@ -164,7 +164,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
       this.backgroundImage=this.level.background[2];
       this.timing=2000;
-      console.log(this.currentNpc,this.currentLine)
     }if(this.phase===2){
       this.activateAnimation()
       this.currentNpc=this.isobald;
@@ -173,7 +172,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.backgroundImage=this.level.background[3];
       this.timing=1700;
       this.rotationSpeed = 300;
-      console.log(this.currentNpc,this.currentLine)
     }if(this.phase===3){
       this.activateAnimation()
       this.currentNpc=this.magda;
@@ -182,14 +180,12 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.backgroundImage=this.level.background[4];
       this.rotationSpeed = 120;
       this.timing=1200;
-      console.log(this.currentNpc,this.currentLine)
     }if(this.phase===4){
       this.activateAnimation()
       this.currentNpc=this.glitch
       this.currentLine=this.currentNpc.phrases[4]
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
       this.backgroundImage=this.level.background[4]
-      console.log(this.currentNpc,this.currentLine)
       this.rotationSpeed=0;
       
       setTimeout(() => {
@@ -250,7 +246,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.currentNpc=this.glitch;
       this.currentLine=this.currentNpc.phrases[3]
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
-      console.log(this.currentNpc,this.currentLine)
       setTimeout(() => {
         this.showDialogue = false;
         this.blockClick=false;
@@ -264,7 +259,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.currentNpc=this.glitch;
       this.currentLine=this.currentNpc.phrases[2]
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
-      console.log(this.currentNpc,this.currentLine)
       setTimeout(() => {
         this.showDialogue = false;
         this.blockClick=false;
@@ -278,7 +272,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.currentNpc=this.glitch;
       this.currentLine=this.currentNpc.phrases[1]
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
-      console.log(this.currentNpc,this.currentLine)
       setTimeout(() => {
         this.showDialogue = false;
         this.blockClick=false;
@@ -292,7 +285,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.currentNpc=this.marsh;
       this.currentLine=this.currentNpc.phrases[1]
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
-      console.log(this.currentNpc,this.currentLine)
       setTimeout(() => {
         this.showDialogue = false;
         this.blockClick=false;
@@ -304,7 +296,6 @@ export class FinalLvComponent implements OnInit, OnDestroy {
       this.currentNpc=this.glitch;
       this.currentLine=this.currentNpc.phrases[0];
       this.numberLine = Math.max(Math.floor(this.currentLine.length / 21), 1);
-      console.log(this.currentNpc,this.currentLine)
   }, 4400);
    setTimeout(() => {
     this.showDialogue = false;
@@ -318,7 +309,7 @@ export class FinalLvComponent implements OnInit, OnDestroy {
   autoHit():void{
     if (this.hitTiming === 0 && this.actualHP !== 0) {
       this.hitTiming = 35000;
-      console.log("parto da 32");
+    
 
   this.timeinIdNar=setTimeout(() => {
         this.showDialogue = true;

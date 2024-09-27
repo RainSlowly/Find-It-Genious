@@ -12,6 +12,9 @@ import { environment } from '../../../environments/environment';
   styleUrl: './side-menu.component.css'
 })
 export class SideMenuComponent implements OnInit{
+
+ 
+
   private soundSubject = new Subject<void>();
   private soundTimeout: any;
   audioOpen:boolean=false;
@@ -20,9 +23,11 @@ export class SideMenuComponent implements OnInit{
   bgAudioVolume:number=0;
   sfxVolume:number=0;
   maxLevel:number=0;
+  isDarkMode = false;
   apiUrl = environment.apiUrl;
 
   @Output() resetLevel = new EventEmitter<void>();
+  @Output() darkModeToggle = new EventEmitter<boolean>();
   constructor(private route :ActivatedRoute,
               private loginService:LoginService,
               private router:Router,
@@ -83,6 +88,10 @@ onVolumeChange(type: string, event: Event) {
     this.audioService.setVolume(type, volume);
     console.log(this.audioService.volumeSettings)
   }
+}
+
+toggleDarkMode() {
+  this.audioService.toggleDarkMode()
 }
 
 continue():void{

@@ -108,7 +108,6 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
       this.usedZoom=false;
       this.zoomActive=false;
       this.speechVisible=false;
-      console.log(this.areas)
       this.images.areas.forEach((area:any) => {
         area.founded = false;
       });
@@ -180,8 +179,7 @@ export class LevelsComponent implements OnInit, OnDestroy, AfterViewChecked{
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateMap();
-    console.log(this.images)
-    console.log(this.images.areas)
+
   }
 
   updateMap(): void{

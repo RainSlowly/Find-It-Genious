@@ -40,6 +40,6 @@
 <span>AUTO</span></button>
     <button *ngIf="!isAutoMode" class="autoOff">
         <img id="pause" src="https://find-it-genious.onrender.com/public/images/pause.png">
-    OFF</button>
+   <span> OFF</span></button>
 </div>
 <div *ngIf="skipOpen || logOpen || isAutoMode" class="blockClick" (click)="closeOpen()"></div>

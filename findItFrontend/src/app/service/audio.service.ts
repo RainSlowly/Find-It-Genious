@@ -1,6 +1,7 @@
 import { Injectable, Inject, PLATFORM_ID} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,9 @@ export class AudioService {
     'BGAudio': 0.05,
     'SFX': 0.15
   };
+  private darkModeSubject = new BehaviorSubject <boolean>(false);
+  darkMode$ = this.darkModeSubject.asObservable();
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { // Precarica gli audio più utilizzati
    this.preloadAudio(environment.apiUrl + '/public/audio/type.mp3', 'SFX');
    this.preloadAudio(environment.apiUrl + '/public/audio/found.mp3', 'SFX');
@@ -111,5 +115,17 @@ setVolume(type: string, volume: number) {
 
   getVolume(type: string): number {
     return this.volumeSettings[type] || 1.0;
+  }
+
+
+  toggleDarkMode() {
+    const currentValue = this.darkModeSubject.value;
+    this.darkModeSubject.next(!currentValue);
+    console.log(this.darkMode$)
+    console.log("ho messo la dark mode")
+  }
+
+  setDarkMode(value: boolean) {
+    this.darkModeSubject.next(value);
   }
 }
