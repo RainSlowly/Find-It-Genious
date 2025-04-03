@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioService } from '../../service/audio.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'app-message',
@@ -13,12 +14,14 @@ inputVisible:boolean=false;
 messages:any[]=["Il gioco offre un tutorial per capire i concetti base e le sue funzioni. Se lo desideri puoi saltare il tutorial e giocare direttamente dal primo livello! Vuoi saltare il tutorial e iniziare subito a giocare? (Perderai alcune piccole parti della storia iniziale.)", "Sei davvero sicuro di voler saltare il tutorial? Sicuro sicuro? Va bene ma dovrai leggere una veloce spiegazione del gioco per capire almeno le funzioni di base."];
 message:string="";
 constructor( private audioService:AudioService,
+             private loginService:LoginService,
              private router:Router
             ){}
 
   ngOnInit(): void {
     this.message=this.messages[0]
     this.messageVisible=true;
+    this.loginService.nextMaxLevel(0)
     //this.audioService.play("https://find-it-genious.onrender.com/public/audio/menum","SFX",false)
 
   }

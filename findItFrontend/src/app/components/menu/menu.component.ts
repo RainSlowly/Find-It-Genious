@@ -87,7 +87,6 @@ onVolumeChange(type: string, event: Event) {
 
     // Aggiorna il volume nel servizio audio
     this.audioService.setVolume(type, volume);
-    console.log(this.audioService.volumeSettings)
   }
 }
 logOut():void{

@@ -60,7 +60,7 @@ this.npcService.getStory(this.currentStory).subscribe((data:any)=>{
   this.interpolatedLine =this.currentDialogue.line.replace(/\$\{userName\}/g, this.userName);
   this.widthCh=(this.interpolatedLine.length>115)? 115 : this.interpolatedLine.length
   this.lineTime = (this.interpolatedLine.length>115)? 115/30 +'s' : this.interpolatedLine.length/30 + 's';
-  this.numberLine = Math.max(Math.floor(this.interpolatedLine.length / 90 +1), 1);
+  this.numberLine = Math.max(Math.floor(this.interpolatedLine.length/90 ), 1);
 const dialogueText = this.elementRef.nativeElement.querySelector('.typewriter');
     if (dialogueText) {
       dialogueText.style.display = 'none'; // Nascondi l'elemento
@@ -84,18 +84,16 @@ this.startTypingSound()
 
   nextDialogue():void{
     this.stopTyping()
-    console.log(this.currentDialogue);
     this.currentLine++;
     let addlog = {npc:this.currentDialogue.npc+': ',line:this.interpolatedLine}
     this.logs.push(addlog);
-    console.log(this.logs);
     this.audioService.play('https://find-it-genious.onrender.com/public/audio/button.mp3', 'SFX', false)
     if (this.currentLine < this.story.dialogue.length) {
     this.currentDialogue=this.story.dialogue[this.currentLine]
     this.interpolatedLine =this.currentDialogue.line.replace(/\$\{userName\}/g, this.userName);
     this.widthCh=(this.interpolatedLine.length>115)? 115 : this.interpolatedLine.length
      this.lineTime = (this.interpolatedLine.length>115)? 115/30 +'s' : this.interpolatedLine.length/30 + 's';
-     this.numberLine = Math.max(Math.floor(this.interpolatedLine.length / 90 +1), 1);
+     this.numberLine = Math.max(Math.floor(this.interpolatedLine.length / 90), 1);
      this.startTypingSound();
      if(this.currentDialogue.sound &&  isPlatformBrowser(this.platformId)){
       if(this.currentDialogue.sound.type === "BGMusic"){
@@ -239,10 +237,14 @@ this.startTypingSound()
       case ' ':
         event.preventDefault();
         this.resetTimePerLine()
-        console.log("premuto spazio",this.lineTime)
         break;
         case 'Enter':
           this.nextDialogue();
+          break;
+          case 'Shift':
+            if (event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
+              this.toggleAutoMode();
+            }
           break;
       case 'Tab':
         event.preventDefault(); 

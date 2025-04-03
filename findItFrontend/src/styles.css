@@ -33,7 +33,4 @@ body, html {
     color: aliceblue;
   }
 
-  body.darkMode {
-    background-color: #121212 !important;
-    color: aliceblue;
-  }
+  

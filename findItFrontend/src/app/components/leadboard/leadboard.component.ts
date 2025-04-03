@@ -40,7 +40,6 @@ export class LeadboardComponent implements OnInit, OnDestroy{
   @HostListener('wheel', ['$event'])
   onScroll(event: WheelEvent): void {
     const container = document.querySelector('.allLeads') as HTMLElement;
-  console.log(event,"scroll")
     if (container) {
       event.preventDefault();
   
@@ -65,7 +64,6 @@ export class LeadboardComponent implements OnInit, OnDestroy{
     forkJoin(requests).subscribe(
       results => {
         this.leaderboards = results;
-        console.log(this.leaderboards)
       },
       error => {
         console.error('Error loading leaderboards:', error);

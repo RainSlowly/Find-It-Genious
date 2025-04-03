@@ -48,12 +48,13 @@ export class LevelResultsComponent implements OnInit, OnDestroy{
     this.audioService.play(environment.apiUrl + '/public/audio/results.mp3',"BGMusic", false)
     this.tag=this.loginService.user.userTag
     const id= this.route.snapshot.params
-    console.log('Parametro id (snapshot):', id);
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      console.log('Parametro id:', id);
       if (id !== null) {
         this.currentLevel = +id;
+        if(this.currentLevel===0){
+          this.nextPage()
+        }
       } else {
         console.error('Parametro id è null');
       }
@@ -113,7 +114,6 @@ export class LevelResultsComponent implements OnInit, OnDestroy{
     
     this.npcService.getNpc(this.selectedNpc).subscribe((data:any)=>{
       this.npc=data; 
-      console.log("l'npc",this.npc)
         const randomIndex = Math.floor(Math.random() * this.npc.phrases.length);
         this.phrase = this.npc.phrases[randomIndex];
         this.npcImg= this.npc.img;
@@ -147,13 +147,11 @@ export class LevelResultsComponent implements OnInit, OnDestroy{
       response => {
         this.pointService.getLeadboard(this.currentLevel).subscribe((data:any)=>{
           this.leaderBoard=data.slice(0,10);})
-        console.log('Risposta dal backend:', response);
       },
       error => {
         console.error('Errore durante la chiamata POST:', error);
       }
     );
-    console.log("I just posted", name,tag, level,points);
   }
 
   calculateScore():void{
@@ -182,20 +180,15 @@ export class LevelResultsComponent implements OnInit, OnDestroy{
   }
 
 calculateStars():void{
-  console.log('Initial Stars:', this.stars);
   if (this.totalScore > 3000) {
     this.stars++;
-    console.log('Stars after score check:', this.stars);
   }
   if (this.levelsService.timeLeft > 19) {
     this.stars++;
-    console.log('Stars after time check:', this.stars);
   }
   if (!this.levelsService.usedZoom && this.levelsService.usedHint === 0) {
     this.stars++;
-    console.log('Stars after zoom/hint check:', this.stars);
   }
-  console.log(this.stars)
   this.cdr.detectChanges();
   this.showStars=true;
 }

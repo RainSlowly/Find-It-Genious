@@ -48,10 +48,8 @@ export class LoginComponent implements OnDestroy {
 
   onSubmit(){
     this.loginService.login(this.userName,this.tag,this.password).subscribe(user => {
-      console.log('User authenticated:', user);
       this.isLogged=true;
       this.stars = user.stars;
-      console.log('le stelle sono', this.stars,'è loggato',this.isLogged)
       this.router.navigate(['/menu'], { state: { user } });
     },
     err => {

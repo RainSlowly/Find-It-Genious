@@ -121,8 +121,6 @@ setVolume(type: string, volume: number) {
   toggleDarkMode() {
     const currentValue = this.darkModeSubject.value;
     this.darkModeSubject.next(!currentValue);
-    console.log(this.darkMode$)
-    console.log("ho messo la dark mode")
   }
 
   setDarkMode(value: boolean) {

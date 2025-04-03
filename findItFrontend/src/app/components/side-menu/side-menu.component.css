@@ -203,12 +203,32 @@ p {
   width: 300px;
   height: 400px;
   position: absolute;
-  top: 600px;
+  top: 720px;
   left: 1980px;
   align-items: center;
   font-size: 1.2rem;
   opacity: 0;
   transition: 0.5s ease;
+
+    button{
+      background-color: #22c7ec;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 95%;
+      top: -7%;
+      color: whitesmoke;
+      font-size: larger;
+    }
+    input{
+      position: relative;
+      top: 2px;
+      margin-left: 10px;
+    }
+    #sfx-volume, #sfx-value{
+      position: relative;
+      left: 43px;
+    }
 }
 #check:checked ~ .audioSettings{
   left: 1580px;

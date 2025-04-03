@@ -167,9 +167,6 @@ export class TutorialComponent implements OnInit, OnDestroy, AfterViewChecked{
     @HostListener('window:resize', ['$event'])
     onResize() {
       this.updateMap();
-      console.log(this.images)
-      console.log(this.images.areas)
-      
     }
   
     updateMap(): void{
@@ -180,8 +177,6 @@ export class TutorialComponent implements OnInit, OnDestroy, AfterViewChecked{
           const currentH = img.clientHeight;
           const wRatio = currentW / this.images.originalWidth;
           const hRatio = currentH / this.images.originalHeight;
-    
-          console.log(currentH, currentW);
           this.images.areas.forEach((area: any) => {
             const originalCoords = area.coords;
             const newCoords = originalCoords.map((coord: number, index: number) => {
@@ -408,10 +403,8 @@ export class TutorialComponent implements OnInit, OnDestroy, AfterViewChecked{
         }
         if (!area.founded) {
           const allFounded = this.images.areas.every((area: any) => area.founded)
-          console.log(allFounded)
           if (this.images.isSpecial===true){
           this.updateObjectives()
-          console.log (this.images.objectives)
         } else if (allFounded) {
       
             this.endLevel();
@@ -535,7 +528,6 @@ export class TutorialComponent implements OnInit, OnDestroy, AfterViewChecked{
       this.hintVisible=true;
       setTimeout(()=>{
       this.hintVisible=false},2240)
-      console.log(this.hintPosition.x,this.hintPosition.y,area)
     }
   
     showPointer(area:any){

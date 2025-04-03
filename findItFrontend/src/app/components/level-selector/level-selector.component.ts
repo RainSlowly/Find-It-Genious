@@ -40,7 +40,6 @@ private soundTimeout: any;
       this.levels.forEach((level, index) => {
         const stars = this.getStarsForLevel(index + 1);
         this.selectedStars[index] = stars;
-        console.log(this.selectedStars, stars)
       });
 
     })
@@ -51,7 +50,6 @@ private soundTimeout: any;
 
 getStarsForLevel(level: number): number {
   const levelData = this.userStars.find((star: any) => star.level === level);
-  console.log(levelData)
   return levelData ? levelData.stars : 0;
 }
 playSound(): void {

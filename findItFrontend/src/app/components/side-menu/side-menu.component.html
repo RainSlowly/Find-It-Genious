@@ -60,7 +60,7 @@
   <div>
     <label for="sfx-volume">SFX Volume</label>
     <input id="sfx-volume" type="range" min="0" max="100" [value]="sfxVolume" (input)="onVolumeChange('SFX', $event)" />
-    <span>{{ sfxVolume }}</span>
+    <span id="sfx-value">{{ sfxVolume }}</span>
   </div>
 
   <button (click)="closeAudioSettings()">X</button>

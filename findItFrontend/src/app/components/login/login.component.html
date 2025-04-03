@@ -28,9 +28,11 @@
 
   <div class="title" *ngIf="openLog" [ngClass]="{'fade-in': isFadingOut }">
     <h1> F.I.G. Prjct </h1>
-    <h3> INITIALIZING LOG IN...</h3>
+    <h3> INITIALIZING LOG IN</h3>
   </div>
 
+  <p class="patience" *ngIf="openLog" [ngClass]="{'fade-in': isFadingOut }">Il database si sta caricando. Porta pazienza...<br> Se il login non prosegue attendi e ricarica.<br> <span>Il tempo di attesa medio è di 30-90 secondi. </span> </p>
+  <p class="creator" *ngIf="openLog" [ngClass]="{'fade-in': isFadingOut }"> Simone A. Zavaglia <br> 2024</p>
   <form *ngIf="openLog" class="container" [ngClass]="{'fade-in': isFadingOut }" (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="input-container">
         <div class="input-content">

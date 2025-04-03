@@ -35,7 +35,6 @@ export class SideMenuComponent implements OnInit{
               }
 ngOnInit(): void {
   this.path = this.route.snapshot.url[0].path
-  console.log('zona attuale:', this.path);
   this.bgMusicVolume=this.audioService.volumeSettings['BGMusic'] * 100;
   this.bgAudioVolume = this.audioService.volumeSettings['BGAudio'] * 100;
   this.sfxVolume = this.audioService.volumeSettings['SFX'] * 100;
@@ -86,12 +85,11 @@ onVolumeChange(type: string, event: Event) {
 
     // Aggiorna il volume nel servizio audio
     this.audioService.setVolume(type, volume);
-    console.log(this.audioService.volumeSettings)
   }
 }
 
 toggleDarkMode() {
-  this.audioService.toggleDarkMode()
+  this.audioService.toggleDarkMode
 }
 
 continue():void{

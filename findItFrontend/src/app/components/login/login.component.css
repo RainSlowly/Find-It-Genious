@@ -9,7 +9,7 @@
 .title{
   position: absolute;
   top: 21%;
-  left: 40.5%;
+  left: 40.7%;
   font-family: 'ensign', sans-serif;
   text-align: center;
   --glow-color: rgba(176, 252, 255, 0.896);
@@ -32,6 +32,52 @@
 .title h3{
   font-size: 0.9rem;
   animation: blinkShadowsFilter 8s ease-in infinite;
+}
+
+.patience{
+  position: relative;
+  left: 37.5%;
+  top:70%;
+  width: 25%;
+  height: auto;
+  letter-spacing: 2px;
+  animation: blinkShadowsFilter 8s ease-in infinite;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  --glow-color: rgba(176, 252, 255, 0.896);
+  --glow-spread-color: rgba(123, 251, 255, 0.781);
+  --enhanced-glow-color: rgb(206, 255, 255);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 0.5em var(--glow-color);
+  transition: all 0.3s;
+
+  span{
+    font-size:12px;
+  }
+}
+
+.creator{
+  position: absolute;
+  left: 79%;
+  top:88%;
+  width: 25%;
+  height: auto;
+  letter-spacing: 2px;
+  animation: blinkShadowsFilter 8s ease-in infinite;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  --glow-color: rgba(176, 252, 255, 0.896);
+  --glow-spread-color: rgba(123, 251, 255, 0.781);
+  --enhanced-glow-color: rgb(206, 255, 255);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 0.5em var(--glow-color);
+  transition: all 0.3s;
 }
 @keyframes blink {
   0% {

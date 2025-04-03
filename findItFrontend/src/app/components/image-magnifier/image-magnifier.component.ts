@@ -58,10 +58,6 @@ export class ImageMagnifierComponent implements OnChanges {
     // Mostra il magnifier
     magnifier.style.display = 'block';
 
-    // Debug
-    console.log(`Cursor Pos: x=${pos.x}, y=${pos.y}`);
-    console.log(`Magnifier Pos: left=${magnifierLeft}, top=${magnifierTop}`);
-    console.log(`Background Position: ${backgroundPosX}px ${backgroundPosY}px`);
 }
   getCursorPos(event: MouseEvent, img: HTMLImageElement) {
     const rect = img.getBoundingClientRect();
@@ -79,7 +75,6 @@ export class ImageMagnifierComponent implements OnChanges {
   onClick(event: MouseEvent) {
     const pos = this.getCursorPos(event, this.imgMagnifier.nativeElement);
     const area = this.getMapArea(pos.x, pos.y);
-    console.log(this.areas)
     if (area) {
       this.handleAreaClick(event, area);
     }

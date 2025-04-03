@@ -133,12 +133,11 @@
     --lines: 50;
     --lineHeight: 32px;
     --timePerLine:3s;
-    --widthCh: 0;
+    --widthCh: 115;
     --width: calc(var(--widthCh) * 1ch);
     /* do not touch the time property!!! */
     --time: calc(var(--lines) * var(--timePerLine));
-    animation: grow var(--time) steps(var(--lines));
-    animation-fill-mode: forwards;
+    animation: grow var(--time) steps(var(--lines))forwards;
     background: var(--bgColor);  
     line-height: var(--lineHeight);
     max-height: var(--lineHeight);
@@ -146,7 +145,7 @@
     font-size: 28px;
     position: relative;
     width: var(--width);
-    max-width: 88%;
+  
     color: aliceblue;
     margin-left: 0.7%;
     z-index: 2;
@@ -181,7 +180,7 @@
     position: absolute;
     font-family: 'ensign', sans-serif;
     font-size: 2.3rem;
-    top: 1%;
+    top: 0%;
     left: 10%;
     color: aliceblue;
     filter: drop-shadow(1px 1px 1px grey);
@@ -190,9 +189,9 @@
   .logs{
     position: relative;
     width: 88.5%;
-    height: 70%;
+    height: 65%;
     left:3%;
-    top: 11%;
+    top: 15%;
     color: aliceblue;
     font-size: 1.2rem;
     z-index: 10;
@@ -313,7 +312,7 @@ left: 33.5%;
   top: 17.5%;
   height: 70%;
   width: auto;
-  animation: grow 2s ease infinite;
+  animation: grow2 2s ease infinite;
 }
 #fwd2{
   position: absolute;
@@ -321,11 +320,11 @@ left: 33.5%;
   top: 17.5%;
   height: 70%;
   width: auto;
-  animation: grow 2s ease infinite;
+  animation: grow2 2s ease infinite;
   animation-delay: 0.7s;
 }
 
-@keyframes grow{
+@keyframes grow2{
   0%,100% { transform: scale(0.96)}
   50%{transform: scale(1.1);}
 }
